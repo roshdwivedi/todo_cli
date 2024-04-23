@@ -27,5 +27,8 @@ impl TaskManager {
             }
         }
     }
+    pub fn delete_task(&mut self, task_id: u32){
+        self.tasks.retain(|task| task.id != task_id);
+    }
 }
     
