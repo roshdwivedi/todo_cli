@@ -28,7 +28,10 @@ impl TaskManager {
         }
     }
     pub fn delete_task(&mut self, task_id: u32){
-        self.tasks.retain(|task| task.id != task_id);
+        self.tasks.retain(|task| task.id != task_id); //The retain method is used to modify the vector in place, keeping only the elements that satisfy a certain condition
+        for(index, task) in self.tasks.iter_mut().enumerate(){  // In this for loop the iter_mut() iterates thru the vector of tasks & enumerate() adds an index to each element 
+            task.id = (index + 1) as u32;   // updating the task id
+        }
     }
 }
     
